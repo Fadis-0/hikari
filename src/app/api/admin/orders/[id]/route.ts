@@ -4,16 +4,20 @@ import { NextRequest, NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 
+// Define the expected shape of the context object, including params
+type RouteContext = {
+  params: {
+    id: string;
+  };
+};
+
 const updateOrderSchema = z.object({
   status: z.enum(["PENDING", "PAID", "SHIPPED", "DELIVERED", "CANCELED"]),
 });
 
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function PUT(request: NextRequest, context: RouteContext) {
   try {
-    const orderId = parseInt(params.id, 10);
+    const orderId = parseInt(context.params.id, 10);
     if (isNaN(orderId)) {
       return NextResponse.json({ message: "Invalid order ID" }, { status: 400 });
     }
@@ -40,7 +44,7 @@ export async function PUT(
 
     return NextResponse.json(updatedOrder[0]);
   } catch (error) {
-    console.error(`Error updating order ${params.id}:`, error);
+    console.error(`Error updating order ${context.params.id}:`, error);
     return NextResponse.json(
       { message: "An unexpected error occurred" },
       { status: 500 }
