@@ -225,7 +225,7 @@ const ProductListPage = () => {
         </div>
 
         <div className="table-bottom-bar">
-          <div className.items-per-page-group">
+          <div className="items-per-page-group">
             <label htmlFor="itemsPerPage">Show:</label>
             <select id="itemsPerPage" value={itemsPerPage} onChange={(e) => { setItemsPerPage(Number(e.target.value)); setCurrentPage(1); }}>
               <option value="5">5</option>
