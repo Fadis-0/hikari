@@ -29,6 +29,7 @@ export const authOptions: AuthOptions = {
           (await bcrypt.compare(credentials.password, user.passwordHash))
         ) {
           // Return a user object without the password hash
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const { passwordHash, ...userWithoutPassword } = user;
           return userWithoutPassword;
         } else {
@@ -44,14 +45,14 @@ export const authOptions: AuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.role = (user as any).role;
+        token.role = (user as { role?: string }).role;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.id as string;
-        session.user.role = token.role as string;
+        (session.user as { id?: string; role?: string }).id = token.id as string;
+        (session.user as { role?: string }).role = token.role as string;
       }
       return session;
     },

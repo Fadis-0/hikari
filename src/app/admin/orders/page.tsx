@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState, useMemo } from 'react';
 import Link from 'next/link';
-import { FaPlus, FaEdit, FaTrash, FaShoppingCart, FaSearch, FaSort, FaSortUp, FaSortDown, FaUser, FaTags, FaCalendarAlt } from 'react-icons/fa';
+import { FaPlus, FaTrash, FaShoppingCart, FaSearch, FaSort, FaSortUp, FaSortDown, FaUser, FaTags, FaCalendarAlt } from 'react-icons/fa';
 import '../../../admin/TableStyles.css';
 import '../../../admin/OrderListPage.css';
 

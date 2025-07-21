@@ -1,7 +1,7 @@
 import { db } from "@/db";
 import { orders, orderItems, carts, cartItems } from "@/db/schema";
 import { NextResponse } from "next/server";
-import { eq, inArray } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
@@ -18,8 +18,9 @@ export async function POST(request: Request) {
 
   try {
     event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
-  } catch (err: any) {
-    return NextResponse.json({ message: `Webhook Error: ${err.message}` }, { status: 400 });
+  } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json({ message: `Webhook Error: ${errorMessage}` }, { status: 400 });
   }
 
   if (event.type === "checkout.session.completed") {

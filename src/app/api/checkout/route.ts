@@ -1,5 +1,5 @@
 import { db } from "@/db";
-import { carts, orders, orderItems } from "@/db/schema";
+import { carts } from "@/db/schema";
 import { NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
 import { getServerSession } from "next-auth/next";
@@ -10,8 +10,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2024-06-20",
 });
 
-export async function POST(request: Request) {
-  const session = await getServerSession(authOptions as any);
+export async function POST() {
+  const session = await getServerSession(authOptions);
   if (!session?.user?.id) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }

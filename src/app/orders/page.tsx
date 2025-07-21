@@ -3,10 +3,11 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
+import Image from 'next/image';
 import './OrdersPage.css';
 
 export default function OrdersPage() {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -59,7 +60,7 @@ export default function OrdersPage() {
               <div className="order-items">
                 {order.items.map((item) => (
                   <div key={item.productId} className="order-item">
-                    <img src={item.product.imageUrl} alt={item.product.name} />
+                    <Image src={item.product.imageUrl} alt={item.product.name} width={75} height={75} />
                     <div>
                       <p>{item.product.name}</p>
                       <p>Qty: {item.quantity}</p>

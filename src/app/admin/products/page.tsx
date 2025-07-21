@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState, useMemo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { FaPlus, FaEdit, FaTrash, FaBoxOpen, FaSearch, FaSort, FaSortUp, FaSortDown, FaTags } from 'react-icons/fa';
 import '../../../admin/TableStyles.css';
 import '../../../admin/ProductListPage.css';
@@ -203,7 +204,7 @@ const ProductListPage = () => {
                   <tr key={product.id} className={selectedItems.includes(product.id) ? 'selected' : ''}>
                     <td><input type="checkbox" checked={selectedItems.includes(product.id)} onChange={() => handleSelectItem(product.id)} /></td>
                     <td className="product-image-cell">
-                      <img src={product.imageUrl} alt={product.name} className="product-thumbnail" />
+                      <Image src={product.imageUrl} alt={product.name} className="product-thumbnail" width={50} height={50} />
                       {product.name}
                     </td>
                     <td>{product.category}</td>
@@ -224,7 +225,7 @@ const ProductListPage = () => {
         </div>
 
         <div className="table-bottom-bar">
-          <div className="items-per-page-group">
+          <div className.items-per-page-group">
             <label htmlFor="itemsPerPage">Show:</label>
             <select id="itemsPerPage" value={itemsPerPage} onChange={(e) => { setItemsPerPage(Number(e.target.value)); setCurrentPage(1); }}>
               <option value="5">5</option>
