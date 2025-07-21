@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { orders } from "@/db/schema";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 
@@ -8,12 +8,18 @@ const updateOrderSchema = z.object({
   status: z.enum(["PENDING", "PAID", "SHIPPED", "DELIVERED", "CANCELED"]),
 });
 
+type PutContext = {
+  params: {
+    id: string;
+  };
+};
+
 export async function PUT(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  context: PutContext,
 ) {
   try {
-    const orderId = parseInt(params.id, 10);
+    const orderId = parseInt(context.params.id, 10);
     if (isNaN(orderId)) {
       return NextResponse.json({ message: "Invalid order ID" }, { status: 400 });
     }
@@ -40,7 +46,7 @@ export async function PUT(
 
     return NextResponse.json(updatedOrder[0]);
   } catch (error) {
-    console.error(`Error updating order ${params.id}:`, error);
+    console.error(`Error updating order ${context.params.id}:`, error);
     return NextResponse.json(
       { message: "An unexpected error occurred" },
       { status: 500 }
