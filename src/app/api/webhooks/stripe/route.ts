@@ -4,13 +4,27 @@ import { NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2024-06-20",
-});
-
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
-
 export async function POST(request: Request) {
+  const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+  if (!stripeSecretKey) {
+    return NextResponse.json(
+      { message: "Stripe secret key is not configured." },
+      { status: 500 }
+    );
+  }
+
+  const stripe = new Stripe(stripeSecretKey, {
+    apiVersion: "2024-06-20",
+  });
+
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+  if (!webhookSecret) {
+    return NextResponse.json(
+      { message: "Stripe webhook secret is not configured." },
+      { status: 500 }
+    );
+  }
+
   const sig = request.headers.get("stripe-signature")!;
   const body = await request.text();
 
