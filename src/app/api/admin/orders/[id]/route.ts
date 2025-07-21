@@ -8,18 +8,12 @@ const updateOrderSchema = z.object({
   status: z.enum(["PENDING", "PAID", "SHIPPED", "DELIVERED", "CANCELED"]),
 });
 
-type PutContext = {
-  params: {
-    id: string;
-  };
-};
-
 export async function PUT(
   request: NextRequest,
-  context: PutContext,
+  { params }: { params: { id: string } }
 ) {
   try {
-    const orderId = parseInt(context.params.id, 10);
+    const orderId = parseInt(params.id, 10);
     if (isNaN(orderId)) {
       return NextResponse.json({ message: "Invalid order ID" }, { status: 400 });
     }
@@ -46,7 +40,7 @@ export async function PUT(
 
     return NextResponse.json(updatedOrder[0]);
   } catch (error) {
-    console.error(`Error updating order ${context.params.id}:`, error);
+    console.error(`Error updating order ${params.id}:`, error);
     return NextResponse.json(
       { message: "An unexpected error occurred" },
       { status: 500 }
