@@ -1,0 +1,96 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Lighter gray for a cleaner look */
+}
+
+.admin-sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #1a202c 0%, #2d3748 100%); /* Gradient for depth */
+  color: #e2e8f0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* Subtle shadow for separation */
+}
+
+.admin-sidebar h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+}
+
+.admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem; /* Slightly increased gap */
+}
+
+.admin-sidebar nav a {
+  color: #a0aec0;
+  text-decoration: none;
+  padding: 0.9rem 1.5rem; /* Increased padding */
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Increased gap for icon and text */
+  font-weight: 500;
+  position: relative;
+}
+
+.admin-sidebar nav a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  transform: translateX(5px); /* Slight move on hover */
+}
+
+.admin-sidebar nav a.active {
+  background-color: #4a5568;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Active indicator */
+.admin-sidebar nav a.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+  width: 4px;
+  background-color: #4299e1; /* Accent color */
+  border-radius: 0 4px 4px 0;
+}
+
+.admin-sidebar .back-to-site {
+  margin-top: auto;
+  border-top: 1px solid #3a4150; /* Lighter border */
+  padding-top: 1.5rem;
+}
+
+.admin-sidebar .back-to-site a {
+  color: #a0aec0;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.admin-sidebar .back-to-site a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.admin-main {
+  flex-grow: 1;
+  padding: 3rem; /* Increased padding for more space */
+  overflow-y: auto;
+}

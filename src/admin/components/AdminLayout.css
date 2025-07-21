@@ -1,0 +1,98 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-background-light); /* Overall light background */
+  font-family: var(--body-font);
+}
+
+.admin-sidebar {
+  width: 260px;
+  background-color: var(--color-primary-dark); /* Dark sidebar background */
+  color: var(--color-primary-light); /* Light text for sidebar */
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.admin-logo {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.admin-nav a {
+  color: var(--color-primary-light); /* Light text for sidebar links */
+  text-decoration: none;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.6rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.admin-nav a:hover {
+  background-color: rgba(255,255,255,0.1); /* Subtle hover effect */
+  color: white;
+  transform: translateX(5px);
+}
+
+.admin-nav a.active {
+  background-color: var(--color-accent-blue); /* Vibrant active state */
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(var(--color-accent-blue-rgb), 0.4);
+}
+
+.admin-nav a:last-child {
+  margin-top: auto;
+  background-color: var(--color-primary-dark); /* Use primary dark for exit button */
+  border-top: 1px solid rgba(255,255,255,0.1); /* Separator for exit button */
+  padding-top: 1rem;
+}
+
+.admin-main-content {
+  flex-grow: 1;
+  padding: 2.5rem 3rem;
+  background-color: var(--color-primary-light); /* White background for content area */
+  border-radius: 8px;
+  margin: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  overflow-y: auto;
+}
+
+.admin-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.admin-content-header h2 {
+  font-size: 1.8rem;
+  color: var(--color-primary-dark);
+  margin: 0;
+}
+
+.admin-content-header .header-actions button {
+  margin-left: 1rem;
+}

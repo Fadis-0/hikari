@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+  /* Modern, clean, and widely used color palette */
+  --color-primary-dark: #1a202c; /* For headings, strong text, and dark elements */
+  --color-primary-light: #ffffff; /* For card backgrounds, clean sections */
+  --color-secondary-text: #4a5568; /* For body text, descriptions */
+  --color-tertiary-text: #718096; /* For subtle text, placeholders */
+  --color-background-main: #f7fafc; /* Lightest background for overall page */
+  --color-border-light: #e2e8f0; /* Light border for subtle separation */
+
+  --color-accent-blue: #007bff; /* Vibrant blue for primary actions, links */
+  --color-accent-blue-rgb: 0, 123, 255;
+  --color-success: #28a745; /* Green for success messages, positive actions */
+  --color-danger: #dc3545; /* Red for errors, destructive actions */
+  --color-warning: #ffc107; /* Yellow for warnings, alerts */
+
+  /* Shadows for depth and modern feel */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  --heading-font: 'Montserrat', sans-serif;
+  --body-font: 'Inter', sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  background-color: var(--color-background-main);
+  color: var(--color-secondary-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-accent-blue);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+button {
+  font-family: var(--body-font);
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background-color: var(--color-accent-blue);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.primary-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Status Badges (retained for consistency, though primarily for admin) */
+.status-badge {
+  padding: 0.3em 0.7em;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-badge.pending {
+  background-color: #fff3cd; /* Light yellow */
+  color: #856404; /* Darker yellow */
+}
+
+.status-badge.completed {
+  background-color: #d4edda; /* Light green */
+  color: #155724; /* Darker green */
+}
+
+.status-badge.shipped {
+  background-color: #d1ecf1; /* Light blue */
+  color: #0c5460; /* Darker blue */
+}
+
+.status-badge.inactive {
+  background-color: #f8d7da; /* Light red */
+  color: #721c24; /* Darker red */
+}
+
+.status-badge.active {
+  background-color: #d4edda; /* Light green */
+  color: #155724; /* Darker green */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Thinner scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-main); /* Track matches main background */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-tertiary-text); /* Thumb matches subtle text color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary-text); /* Darker on hover */
+}
+

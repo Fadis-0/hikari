@@ -1,0 +1,173 @@
+.dashboard-page {
+  padding: 0;
+}
+
+.dashboard-page h1 {
+  display: none; /* Hide the h1 as it's now in AdminLayout */
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background-color: var(--color-background-card);
+  padding: 1.8rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md); /* Softer, deeper shadow */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--color-border);
+  position: relative; /* For icon positioning */
+  overflow: hidden; /* For background effects */
+}
+
+.stat-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-card .icon-bg {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 4rem;
+  color: rgba(0, 0, 0, 0.05); /* Very subtle icon */
+  z-index: 0;
+}
+
+.stat-card h2 {
+  font-size: 1.1rem;
+  color: var(--color-secondary);
+  margin: 0 0 0.8rem 0;
+  font-weight: 600;
+  position: relative; /* Ensure text is above icon */
+  z-index: 1;
+}
+
+.stat-card p {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Specific card colors - using new theme colors */
+.stat-card.revenue {
+  border-left: 5px solid var(--color-accent);
+}
+.stat-card.revenue h2, .stat-card.revenue p {
+  color: var(--color-primary);
+}
+
+.stat-card.sales {
+  border-left: 5px solid var(--color-success);
+}
+.stat-card.sales h2, .stat-card.sales p {
+  color: var(--color-primary);
+}
+
+.stat-card.customers {
+  border-left: 5px solid var(--color-info);
+}
+.stat-card.customers h2, .stat-card.customers p {
+  color: var(--color-primary);
+}
+
+.stat-card.orders {
+  border-left: 5px solid var(--color-warning);
+}
+.stat-card.orders h2, .stat-card.orders p {
+  color: var(--color-primary);
+}
+
+.dashboard-section {
+  background-color: var(--color-background-card);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--color-border);
+}
+
+.dashboard-section h3 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.recent-list, .top-products-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-list li, .top-products-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px dashed var(--color-border);
+  color: var(--color-secondary);
+}
+
+.recent-list li:last-child, .top-products-list li:last-child {
+  border-bottom: none;
+}
+
+.recent-list li span:first-child, .top-products-list li span:first-child {
+  font-weight: 600;
+  color: var(--color-primary);
+  flex-basis: 60%; /* Give more space to the first span */
+}
+
+.recent-list li span:last-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-basis: 40%; /* Give less space to the last span */
+  justify-content: flex-end; /* Align content to the right */
+}
+
+.recent-list li .status-badge {
+  padding: 0.3em 0.7em;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-badge.pending {
+  background-color: #fff3cd; /* Light yellow */
+  color: #856404; /* Darker yellow */
+}
+
+.status-badge.completed {
+  background-color: #d4edda; /* Light green */
+  color: #155724; /* Darker green */
+}
+
+.status-badge.shipped {
+  background-color: #d1ecf1; /* Light blue */
+  color: #0c5460; /* Darker blue */
+}
+
+.status-badge.inactive {
+  background-color: #f8d7da; /* Light red */
+  color: #721c24; /* Darker red */
+}
+
+.status-badge.active {
+  background-color: #d4edda; /* Light green */
+  color: #155724; /* Darker green */
+}

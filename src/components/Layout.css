@@ -1,0 +1,152 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-background-main); /* Overall light background */
+}
+
+.layout-header {
+  background-color: var(--color-primary-light); /* White header background */
+  box-shadow: var(--shadow-sm); /* Subtle shadow */
+  padding: 1rem 2rem; /* Adjusted padding */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--color-border-light); /* Subtle bottom border */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Slightly narrower content for focus */
+  margin: 0 auto;
+}
+
+.store-logo h1 {
+  font-size: 2rem; /* Slightly larger logo */
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-primary-dark); /* Dark color for logo */
+}
+
+.main-nav a {
+  margin-left: 2rem; /* Adjusted spacing */
+  font-size: 0.95rem; /* Slightly smaller font */
+  font-weight: 600;
+  padding: 0.5rem 0; /* Vertical padding for click area */
+  position: relative;
+  color: var(--color-secondary-text); /* Muted text for nav links */
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--color-primary-dark); /* Darker on hover */
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent-blue); /* Accent color for underline */
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+.main-nav a.admin-link {
+  background-color: var(--color-primary-dark); /* Dark background for admin link */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px; /* Consistent border-radius */
+  margin-left: 3rem; /* More separation */
+}
+.main-nav a.admin-link:hover {
+  background-color: var(--color-secondary-text); /* Darker on hover */
+  color: white;
+}
+.main-nav a.admin-link::after {
+  display: none;
+}
+
+.nav-link-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.layout-main {
+  flex-grow: 1;
+  padding: 2rem; /* Consistent padding */
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.layout-footer {
+  background-color: var(--color-primary-dark); /* Dark footer background */
+  color: var(--color-tertiary-text); /* Muted text for footer */
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.auth-links .login-btn,
+.auth-links .register-btn,
+.auth-links .log-out-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.auth-links .login-btn {
+  background-color: var(--color-accent-blue);
+  margin-right: 1rem;
+}
+
+.auth-links .login-btn:hover {
+  background-color: #0056b3; /* Darker blue */
+}
+
+.auth-links .register-btn {
+  background-color: var(--color-primary-dark);
+}
+
+.auth-links .register-btn:hover {
+  background-color: var(--color-secondary-text);
+}
+
+.auth-links .log-out-btn {
+  background-color: var(--color-primary-dark);
+}
+
+.auth-links .log-out-btn:hover {
+  background-color: var(--color-secondary-text);
+}
+
+.logout-btn {
+    background-color: #c82333;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    margin-left: 16px;
+}
+
+.logout-btn:hover {
+    background-color: #c82333; /* Darker red */
+}

@@ -1,0 +1,198 @@
+.add-new-btn {
+  background-color: var(--color-accent-blue);
+  color: white;
+  padding: 0.85rem 1.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: var(--shadow-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.add-new-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid var(--color-border-light);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--color-primary-dark);
+  background-color: var(--color-background-main);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  min-width: 250px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.8rem;
+  color: var(--color-secondary-text);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.data-table th, .data-table td {
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-light);
+  color: var(--color-secondary-text);
+  vertical-align: middle;
+}
+
+.data-table th {
+  background-color: var(--color-background-main);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.data-table th.sortable {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.data-table th.sortable:hover {
+  background-color: var(--color-border-light);
+}
+
+.data-table th > svg {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--color-background-main);
+}
+
+.data-table tbody tr.selected {
+  background-color: var(--color-accent-blue-light);
+}
+
+.data-table .action-btn {
+  margin-right: 0.4rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border-light);
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--color-background-main);
+  color: var(--color-secondary-text);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+}
+
+.data-table .action-btn:hover {
+  border-color: var(--color-primary-dark);
+  color: var(--color-primary-dark);
+  background-color: var(--color-border-light);
+}
+
+.actions-cell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.status-badge {
+  padding: 0.4em 0.8em;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge.active {
+  color: #1d6c41;
+  background-color: rgba(46, 204, 113, 0.15);
+}
+
+.status-badge.inactive, .status-badge.out-of-stock, .status-badge.cancelled {
+  color: #a5281b;
+  background-color: rgba(231, 76, 60, 0.15);
+}
+
+.status-badge.low-stock, .status-badge.processing {
+  color: #b5660d;
+  background-color: rgba(243, 156, 18, 0.15);
+}
+
+.status-badge.shipped {
+  color: #0056b3;
+  background-color: rgba(0, 123, 255, 0.15);
+}
+
+.status-badge.delivered, .status-badge.active, .status-badge.in-stock {
+  color: #1d6c41;
+  background-color: rgba(46, 204, 113, 0.15);
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  font-style: italic;
+  color: var(--color-secondary-text);
+  font-size: 1.1rem;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination-controls button {
+  background-color: var(--color-accent-blue);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.pagination-controls button:disabled {
+  background-color: var(--color-border-light);
+  color: var(--color-secondary-text);
+  cursor: not-allowed;
+}
+
+.pagination-controls span {
+  font-size: 1rem;
+  color: var(--color-primary-dark);
+  font-weight: 500;
+}
